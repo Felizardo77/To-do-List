@@ -93,6 +93,9 @@ hr{
 }
 .task_container{
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
 }
 .add_task{
     padding: 0.5rem;
@@ -100,4 +103,16 @@ hr{
 }
 .add_task:hover{
     background: linear-gradient(to right, rgba(216, 232, 240, 0.589), rgba(216, 232, 240, 0.459));
+}
+
+.task{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    padding-left: 0.5rem;
+}
+
+.task input{
+    outline: none;
+    border: none;
 }
