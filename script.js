@@ -1,8 +1,6 @@
-
-const hoje_btn = document.querySelector(".today_btn")
+const hoje_btn = document.querySelector(".today_btn");
 hoje_btn.addEventListener("click", () => {
   const display = document.querySelector(".display_content");
-  display.innerHTML = "";
 
   const hoje_span = document.createElement("span");
   hoje_span.innerText = "Hoje";
@@ -16,6 +14,9 @@ hoje_btn.addEventListener("click", () => {
   add_task.style.setProperty("cursor", "pointer");
   add_task.className = "add_task";
   add_task.id = "add_task";
+  add_task.addEventListener("click", () => {
+    addTask();
+  });
 
   task_container.append(add_task);
 
@@ -25,4 +26,27 @@ hoje_btn.addEventListener("click", () => {
   display.append(hoje_span, task_container);
 });
 
-const add_task = document.querySelector(".add_task");
+function addTask() {
+  //Adiciona uma nova Tarefa
+  const tasks = document.querySelector('.task_container')
+  const task = document.createElement("div");
+  task.className = "task";
+  //Task
+  const taskCheck = document.createElement("input");
+  taskCheck.type = "checkbox";
+  taskCheck.className = "task-check";
+  taskCheck.name = "task-check";
+  const taskText = document.createElement("input");
+  taskText.type = "text";
+  taskText.placeholder = 'Escreva a tarefa ...'
+  taskText.className = "task-text";
+  taskText.name = "task-text";
+  taskText.addEventListener('keypress',(ev)=>{
+    if(ev.key === 'Enter'){
+        taskText.blur()
+    }
+  })
+
+  task.append(taskCheck, taskText);
+  tasks.append(task);
+}
